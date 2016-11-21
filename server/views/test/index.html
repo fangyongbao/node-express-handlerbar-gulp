@@ -1,0 +1,123 @@
+<style>
+.m-test {
+    color: #000;
+}
+h2{
+    margin-top:40px;
+}
+table{
+    margin-top:20px;
+}
+table td{
+    border: 1px solid #e0e0e0;
+    width: 400px;
+}
+</style>
+<!--引入公共头部-->
+{{> header headerPam}}
+<div class="m-test">
+    <h2>block helper</h2>
+    <table>
+        {{#eachData}}
+        <tr>
+            <td>{{id}}</td>
+            <td>{{name}}</td>
+        </tr>
+        {{/eachData}}
+    </table>
+
+    <h2>each helper</h2>
+    <table>
+        {{#eachData}}
+        <tr>
+            <td>{{id}}</td>
+            <td>{{name}}</td>
+        </tr>
+        {{/eachData}}
+    </table>
+
+    <h2>../  获取父级对象</h2>
+    <table>
+    {{#each studentParent}}
+    <tr>
+        <td>
+            {{#with odds}}
+                <span>{{o1}}</span>
+                <span>{{../des}}</span>
+            {{/with}}
+        </td>
+    </tr>
+    {{/each}}
+    </table>
+
+    <h2>使用父级@index</h2>
+    <table>
+    {{#each studentParent}}
+    <tr>
+        <td>{{@index}}</td>
+        <td>
+            {{#each odds}}
+                <span>{{this}}</span>
+                <span>父级ID:{{@../index}}</span><br>
+            {{/each}}
+        </td>
+    </tr>
+    {{/each}}
+    </table>
+
+    <h2>lookup helper获取兄弟级对象</h2>
+    <table>
+    {{#each studentParent}}
+    <tr>
+        <td>{{@index}}</td>
+        <td>{{lookup ../pageInfo "title"}}</td>
+        <td>
+            {{#with (lookup ../company company)}}
+                {{comName}}
+            {{/with}}
+        </td>
+    </tr>
+    {{/each}}
+    </table>
+
+    <h2>使用自定义行级helper</h2>
+    <div>
+        {{oneLineHeaper 11 "22"}}
+    </div>
+
+
+    <h2>使用 helper返回html片段</h2>
+    <div>
+        {{htmlHeaper 11 22}}
+    </div>
+
+    <h2>使用自定义块级helper</h2>
+    <div>
+        {{#blockHeaper nav}}
+        <a href="{{url}}">{{title}}</a>
+        {{/blockHeaper}}
+    </div>
+
+    <h2>自定义helper获取对象下标</h2>
+    <table>
+        {{#eachData}}
+        <tr>
+            <td>{{getKeyFilter @index}}</td>
+            <td>{{id}}</td>
+            <td>{{name}}</td>
+        </tr>
+        {{/eachData}}
+    </table>
+
+    <h2>使用自定义helper判断大小</h2>
+    <div>
+        {{#compareFilter compare.id 20}}
+            <div>1</div>
+        {{else}}
+            <div>2</div>
+        {{/compareFilter}}
+    </div>
+
+</div>
+<!--引入公共底部-->
+{{> footer footerPam}}

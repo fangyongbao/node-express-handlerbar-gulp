@@ -1,0 +1,96 @@
+/**
+ * css初始化样式及自定义样式封装
+ * @author maicon
+ * @date 2016-07-14
+ */
+
+@charset "UTF-8";
+* { margin: 0; padding: 0; }
+html { font-family: sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); -webkit-text-size-adjust: none; -webkit-user-select: none; -moz-user-select: none; user-select: none; }
+html, body { font-family: Helvetica, Tahoma, Arial, "Microsoft YaHei", "微软雅黑", STXihei, "华文细黑", SimSun, "宋体", Heiti, "黑体", sans-serif; }
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+ol, ul { list-style: none; }
+table { border-collapse: collapse; border-spacing: 0; }
+input, button, textarea { -webkit-appearance: none; }
+
+/**
+ * 定义预定义字体样式
+ */
+::-webkit-input-placeholder { color: #999; }
+:-moz-placeholder { color: #999; }
+::-moz-placeholder { color: #999; }
+:-ms-input-placeholder { color: #999; }
+.placeholder { color: #999; }
+
+/**
+ * 清除浮动
+ */
+.f-cb:after, .f-cbli li:after { display: block; clear: both; visibility: hidden; height: 0; overflow: hidden; content: "."; }
+.f-cb, .f-cbli li { zoom: 1; }
+
+/**
+ * 定义元素如何显示
+*/
+.f-dib { display: inline-block; *display: inline; *zoom: 1; }
+.f-di { display: inline; }
+.f-dn { display: none; }
+.f-db { display: block; }
+.f-dt { display: table; }
+.f-dtr { display: table-row; }
+.f-dtc { display: table-cell; }
+
+/**
+ * 定义浮动
+*/
+.f-fl { float: left; }
+.f-fr { float: right; }
+.f-fn { float: none; }
+
+/**
+ * 定义元素定位类型
+ */
+.f-pr { position: relative; }
+.f-pa { position: absolute; }
+.f-pf { position: fixed; }
+
+/**
+ * 定义元素超出隐藏
+ */
+.f-oh { overflow: hidden; }
+
+/**
+ * 定义字体相关样式
+ */
+.f-tal { text-align: left; }
+.f-tac { text-align: center; }
+.f-tar { text-align: right; }
+.f-fwb { font-weight: bold; }
+.f-tdu, .f-tdu:hover { text-decoration: underline; }
+.f-tdn, .f-tdn:hover { text-decoration: none; }
+
+/**
+ * 溢出单行文本显示省略号
+ */
+.f-toe { overflow: hidden; word-wrap: normal; white-space: nowrap; text-overflow: ellipsis; -o-text-overflow: ellipsis; }
+
+/**
+ * 溢出文本强制换行
+ */
+.f-pre { overflow: hidden; text-align: left; white-space: pre-wrap; word-wrap: break-word; word-break: break-all; }
+
+/**
+ * 定义鼠标悬浮样式
+ */
+.f-csp { cursor: pointer; }
+
+/**
+ * 定义子元素垂直显示样式
+ */
+.f-vat, .f-vata * { vertical-align: top; }
+.f-vab, .f-vaba * { vertical-align: bottom; }
+.f-vam, .f-vama * { vertical-align: middle; }
+
+/**
+ * 表格布局固定
+ */
+.f-tlf { table-layout: fixed; }

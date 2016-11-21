@@ -1,0 +1,72 @@
+<style type="text/css">
+.slideDiv {
+    height: 40px;
+    line-height: 40px;
+    border: 1px solid gray;
+    margin-top: 20px;
+}
+
+.cTable {}
+
+.cTable > div {
+    display: table;
+    width: 100%;
+}
+
+.cTable > div > div {
+    display: table-row;
+}
+
+.cTable > div > div > div{
+    display: table-cell;
+    border: 1px solid #e0e0e0;
+    padding: 10px;
+}
+</style>
+<h2 style="text-align: center;">复杂点的数据处理</h2>
+<div class="g-body m-index">
+    <div class="containerDiv">
+        <div class="goingDiv">
+            <div data-type="going">
+                <!--进行中 begin-->
+                <div>
+                    {{#each league}}
+                    <!--one legend begin-->
+                    <div>
+                        <!--one slide begin-->
+                        <div class="slideDiv">
+                            @index:{{@index}} @key:{{@key}} {{name}}{{matchNum}}
+                            <span class="slidebtn open"></span>
+                        </div>
+                        <div class="cTable">
+                            <div>
+                                {{#each (lookup ../match @key)}}
+                                <!--one match begin-->
+                                <div>
+                                    <div class="f-dtc td">
+                                        <div> 主队: {{../../match.k_229.k_2228554.home_team_name}} </div>
+                                        <div class="imgDiv">
+                                            <span class="scoreSpan">比分: {{home_score}}:{{away_score}}</span>
+                                            <p>亚盘: </p>
+                                            {{#each odds.yp}}
+                                            <div class="u-imgText">
+                                                {{#with (lookup ../../../company bid)}}
+                                                <img src="http://static.oddsstar.com//{{h5_img}}"> {{/with}}
+                                            </div>
+                                            {{/each}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--one match end-->
+                                {{/each}}
+                            </div>
+                        </div>
+                    </div>
+                    <!--one legend end-->
+                    {{/each}}
+                </div>
+                <!--进行中、今日 end-->
+            </div>
+        </div>
+    </div>
+</div>
